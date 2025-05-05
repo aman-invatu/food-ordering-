@@ -10,6 +10,8 @@ import GallerySection from '@/components/home/GallerySection';
 import MenuListSection from '@/components/home/MenuListSection';
 import ClientsSection from '@/components/home/ClientsSection';
 import NewsletterSection from '@/components/home/NewsletterSection';
+import FeaturedDishesSection from '@/components/home/FeaturedDishesSection';
+import TrendingItemsSection from '@/components/home/TrendingItemsSection';
 
 const Index = () => {
   return (
@@ -18,7 +20,9 @@ const Index = () => {
       <CuisinesSection />
       <FeaturesSection />
       <MenuSection />
+      <FeaturedDishesSection />
       <PromoSection />
+      <TrendingItemsSection />
       <PopularDishesSection />
       <GallerySection />
       <MenuListSection />

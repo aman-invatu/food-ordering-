@@ -1,6 +1,7 @@
 
 import { useToast } from '@/hooks/use-toast';
 import { useCart } from '@/hooks/use-cart';
+import { MenuItem } from '@/types';
 
 const menuListItems = [
   {
@@ -9,6 +10,10 @@ const menuListItems = [
     description: 'Fresh apples, celery and walnuts, dressed in mayonnaise',
     price: 3.95,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=80&h=80&fit=crop',
+    category: 'appetizer',
+    cuisine: 'american',
+    rating: 4.2,
+    reviews: 42,
   },
   {
     id: '102',
@@ -16,6 +21,10 @@ const menuListItems = [
     description: 'Bbq sauce, american garden, chicken breasts, coleslaw',
     price: 3.65,
     image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=80&h=80&fit=crop',
+    category: 'main',
+    cuisine: 'american',
+    rating: 4.5,
+    reviews: 28,
   },
   {
     id: '103',
@@ -23,6 +32,10 @@ const menuListItems = [
     description: 'Loaded with bacon, stuffed with two kinds of cheese',
     price: 2.79,
     image: 'https://images.unsplash.com/photo-1581628480246-2e7aee97d97e?w=80&h=80&fit=crop',
+    category: 'appetizer',
+    cuisine: 'french',
+    rating: 4.3,
+    reviews: 36,
   },
   {
     id: '104',
@@ -30,6 +43,10 @@ const menuListItems = [
     description: 'White wine, arborio rice, parmesan cheese, butter',
     price: 3.06,
     image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?w=80&h=80&fit=crop',
+    category: 'main',
+    cuisine: 'italian',
+    rating: 4.7,
+    reviews: 52,
   },
   {
     id: '105',
@@ -37,6 +54,10 @@ const menuListItems = [
     description: 'Portobello mushrooms, white wine, arborio rice, chicken',
     price: 4.03,
     image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=80&h=80&fit=crop',
+    category: 'main',
+    cuisine: 'italian',
+    rating: 4.6,
+    reviews: 31,
   },
   {
     id: '106',
@@ -44,6 +65,10 @@ const menuListItems = [
     description: 'Lean ground beef, red wine, tomato sauce, beef broth',
     price: 3.65,
     image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=80&h=80&fit=crop',
+    category: 'main',
+    cuisine: 'italian',
+    rating: 4.4,
+    reviews: 45,
   },
   {
     id: '107',
@@ -51,6 +76,10 @@ const menuListItems = [
     description: 'Onion, tomato, masala, cheese',
     price: 4.67,
     image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=80&h=80&fit=crop',
+    category: 'main',
+    cuisine: 'american',
+    rating: 4.2,
+    reviews: 38,
   },
   {
     id: '108',
@@ -58,6 +87,10 @@ const menuListItems = [
     description: 'Stuffed with chicken, bacon, avocado, eggs and cheese',
     price: 2.98,
     image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&h=80&fit=crop',
+    category: 'salad',
+    cuisine: 'american',
+    rating: 4.1,
+    reviews: 24,
   },
 ];
 
@@ -65,14 +98,8 @@ const MenuListSection = () => {
   const { toast } = useToast();
   const { addItem } = useCart();
 
-  const handleAddToCart = (item: any) => {
-    addItem({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      image: item.image,
-      quantity: 1,
-    });
+  const handleAddToCart = (item: MenuItem) => {
+    addItem(item);
     
     toast({
       title: "Added to cart",
